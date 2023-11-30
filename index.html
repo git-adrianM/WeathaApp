@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale="1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App - Easy Tutorials</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,78 +12,70 @@
         <button><img src="images/search.png"></button>
     </div>
     <div class="error">
-    <p>Invalid city name</p>
+        <p>Invalid city name</p>
     </div>
-<div class="weather">
-    <img src="images/rain.png" class="weather-icon">
-    <h1 class="temp">22°c</h1>
-    <h2 class="city">New York</h2>
-<div class = "details">
-    <div class="col">
-        <img src="images/humidity.png">
-        <div>
-            <p class="humidity">50%</p>
-            <p>Humidity</p>
-        </div>
-    </div>
-        <div class="col">
-            <img src="images/wind.png">
-            <div>
-                <p class="wind">15 km/h</p>
-                <p>Wind Speed</p>
-            </div>
+    <div id="forecast" class="forecast-container">
+        <!-- Forecast cards will be generated here -->
     </div>
 </div>
-</div>
-<script> 
-const apiKey = "ba4d9761ebf97ef9db83a416a2691ec8";
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
 
-const searchBox = document.querySelector(".search input");
-const searchBtn = document.querySelector(".search button");
-const weatherIcon = document.querySelector(".weather-icon");
+<script>
+    const apiKey = "ba4d9761ebf97ef9db83a416a2691ec8"; // Your OpenWeather API key
+    const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=";
 
-async function checkWeather(city){
-    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+    const searchBox = document.querySelector(".search input");
+    const searchBtn = document.querySelector(".search button");
 
-if (response.status == 404){
-    document.querySelector(".error").style.display = "block";
-    document.querySelector(".weather").style.display = "none";
-}
-else{
-    var data = await response.json();
+    async function checkWeather(city) {
+        const response = await fetch(apiUrl + city + "&appid=" + apiKey);
 
-    document.querySelector(".city").innerHTML = data.name;
-    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
-    document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-    document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
-
-    if(data.weather[0].main == "Clouds"){
-        weatherIcon.src = "images/clouds.png";
+        if (response.status == 404) {
+            document.querySelector(".error").style.display = "block";
+            document.querySelector("#forecast").style.display = "none";
+        } else {
+            const data = await response.json();
+            displayForecast(data.list);
+            document.querySelector(".error").style.display = "none";
+        }
     }
-    else if(data.weather[0].main == "Clear"){
-        weatherIcon.src = "images/clear.png";
-    }
-    else if(data.weather[0].main == "Rain"){
-        weatherIcon.src = "images/rain.png";
-    }
-    else if(data.weather[0].main == "Drizzle"){
-        weatherIcon.src = "images/drizzle.png";
-    }
-    else if(data.weather[0].main == "Mist"){
-        weatherIcon.src = "images/mist.png";
-    }
-    document.querySelector(".weather").style.display = "block";
-    document.querySelector(".error").style.display = "none";
 
-}
+    function displayForecast(forecastData) {
+        const forecastContainer = document.getElementById('forecast');
+        forecastContainer.innerHTML = ''; // Clear previous forecast cards
 
-    
-}
-searchBtn.addEventListener("click" , ()=>{
-    checkWeather(searchBox.value);
-})
+        for(let i = 0; i < forecastData.length; i += 8) {
+            const day = forecastData[i];
+            const date = new Date(day.dt * 1000); // Convert Unix time to JS Date
+            const card = document.createElement('div');
+            card.className = 'forecast-card';
+            card.innerHTML = `
+                <h3>${date.toDateString()}</h3>
+                <img src="images/${getWeatherIcon(day.weather[0].main)}.png" class="weather-icon" alt="${day.weather[0].main}">
+                <h2>${Math.round(day.main.temp - 273.15)}°C</h2>
+                <p>Humidity: ${day.main.humidity}%</p>
+                <p>Wind: ${day.wind.speed} km/h</p>
+            `;
+            forecastContainer.appendChild(card);
+        }
+    }
 
+    function getWeatherIcon(weatherMain) {
+        const weatherIcons = {
+            'Clouds': 'clouds',
+            'Clear': 'clear',
+            'Rain': 'rain',
+            'Drizzle': 'drizzle',
+            'Mist': 'mist'
+            // Add more conditions and icons as needed
+        };
+        return weatherIcons[weatherMain] || 'default';
+    }
+
+    searchBtn.addEventListener("click", () => {
+        checkWeather(searchBox.value);
+    });
+
+    // Call the function on initial load with a default city
 </script>
 </body>
 </html>

@@ -4,9 +4,13 @@
     font-family:'Poppins' , sans-serif;
     box-sizing:border-box;
 }
-body{
-    background-color: #222;
+body {
+    background-image: url('/images/Image1.png'); /* Update the path */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
+
 .card{
     width: 90%;
     max-width: 470px;
@@ -90,3 +94,43 @@ body{
     margin-top: 10px;
     display: none;
 }
+
+.forecast-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.forecast-card {
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    position: relative; /* Make sure position is relative for proper z-index functioning */
+    z-index: 1; /* This ensures that the card is above any potentially overlapping elements */
+}
+
+/* Adjusting the weather icon size and spacing */
+.weather-icon {
+    width: 50px; /* Adjust the size as needed */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Clear any previous float styles if any */
+.search, .error, .weather, .details, .col {
+    clear: both;
+}
+
+/* Add a media query for smaller screens to have less columns */
+@media (max-width: 768px) {
+    .forecast-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
+
