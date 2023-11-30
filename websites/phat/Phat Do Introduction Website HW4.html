@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title>Phat Do Introduction Website</title>
+		
+		<style type = "text/css">
+			.rounded {
+				color: #0C023E;
+				border: 3px solid #0C023E;
+				background: #7991BD;
+				padding: 5px 20px;
+				width: 200px;
+				text-align: center;
+				border-radius: 15px;
+			}
+			.multicolumns {
+				-webkit-column-count: 2; 
+				-moz-column-count: 2; 
+				-o-column-count: 2;
+				column-count: 3;
+				-webkit-column-gap: 30px;
+				-moz-column-gap: 30px; 
+				-o-column-gap: 30px; 
+				column-gap: 30px;
+				-webkit-column-rule: 1px outset black; 
+				-moz-column-rule: 1px outset black; 
+				-o-column-rule: 1px outset black; 
+				column-rule: 1px outset black;
+				height: 210px;
+			}
+			@keyframes rotate360 {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(360deg);
+				}
+			}
+			.rotating-image {
+				animation: rotate360 2s linear infinite;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1 style="color: #304674;">Hello! Welcome to my Self-Introductory Website.</h1>
+		<p>It's a pleasure to be in this class, here's to a good semester. Let's have a good time.</p>
+		<p>My name is <em><span style="color: #4169E1;">Phat Do</span></em>. I am currently majoring in Computer Science at the <span style="color: #4169E1;"><em><strong>University of Houston - Downtown.</strong></em></span></p>
+		
+		<div class = multicolumns>
+			<p>Some of my current hobbies are:
+				<ul style="margin-top:-10px;">
+					<li>Building Custom Keyboards</li>
+					<li>Reading</li>
+					<li>Collecting</li>
+					<li>Playing Video Games - Some games I've been playing:</li>
+							<ul>
+								<li>Counter Strike 2</li>
+								<li style="color: #4169E1">Payday 3</li>
+								<li>Beat Saber</li>
+								<li>Apex Legends</li>
+							</ul>
+				</ul>
+			</p>
+			<p>
+				<table border = "1">
+					<caption><strong>My Video Game Ratings</strong></caption>
+					<thead>
+						<tr>
+							<th>My Favorite Games</th>
+							<th>Rating</th>
+							<th>Comment</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr style="background-color: #7991BD">
+							<td>Red Dead Redemption 2</td>
+							<td>8/10</td>
+							<td>The game was a great cinematic. Gameplay/gunplay was enjoyable. An immersive experience.
+						</tr>
+						<tr>
+							<td>God of War: Ragnarok</td>
+							<td>9/10</td>
+							<td>In my opinion, I loved the original series, still do, but GoW: Ragnarok provided a great story. They fixed a lot of the issues with GoW 2014, and its a much better experience.</td>
+						</tr>
+						<tr style="background-color: #7991BD">
+							<td>Melatonin</td>
+							<td>8/10</td>
+							<td>Chill LoFi type beat. Enjoyable rythem game. Not enough levels in my opinion. Helps me fall asleep.</td>
+						</tr>
+				</table>
+			</p>
+			<p>Some programming languages that I am proficient at are:
+				<ul style="margin-top:-10px;">
+					<li>C++</li>
+					<li>C#</li>
+					<li>mySQL</li>
+					<li>Python</li>
+						<ul>
+							<li>Currently working on a personal project to make a Discord Bot for me and my friends.</li>
+						</ul>	
+				</ul>
+				<p>I'm hoping that I'll become adept with all the languages being taught in this class. By the end of the semester, I'm expecting myself to be good enough to make a single, condensed website for rating Movies, TV Shows, Music, Video Games, etc.</p>
+			</p>
+		</div>
+
+		<div class = rounded>
+			<p><strong>Click on the Steam icon to go to my Steam Profile</strong></p>
+			<p>Feel free to send me a friend request.</p>
+				<a href="https://steamcommunity.com/profiles/76561198394920551/">
+				<img src="steam-logo-transparent.png" class ="rotating-image">
+				</a>
+		</div>	
+			
+		<p>Here is a picture of my dog, Biscuit.
+		He's a very annoying and spoiled corgi.</p>
+		
+		<img src="biscuit.png">
+		
+		<p>Fun Facts about me I guess:
+			<ul style="margin-top:-10px;">
+				<li> I can solve a Rubix Cube in about ~1 minute, which isn't really impressive if you consider that there are people out there who can solve it in seconds. The world record is 3.13 seconds.</li>
+				<li> i dont know what im doing with my life?????????????</li>
+			</ul>
+		</p>
+	</body>
+</html>

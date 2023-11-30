@@ -134,3 +134,34 @@ body {
     }
 }
 
+.forecast-card .contributors-list {
+    list-style: none; /* Removes default list styling */
+    padding: 0; /* Removes default padding */
+    margin-top: 20px; /* Adds some space below the header */
+}
+
+.forecast-card .contributors-list li {
+    display: flex; /* Aligns the icon and text horizontally */
+    align-items: center; /* Centers them vertically */
+    margin-bottom: 10px; /* Adds space between list items */
+}
+
+.forecast-card .contributors-list img {
+    margin-right: 10px; /* Adds space between the icon and text */
+    width: 24px; /* Adjusts the size of the icon */
+    height: auto; /* Maintains aspect ratio */
+}
+.contributors-card {
+    /* Your existing styles for the contributors card */
+    margin-top: 20px; /* Adds space between the forecast cards and contributors card */
+}
+
+.Contributor-cards a {
+    color: #fff; /* or any color you want */
+    text-decoration: none; /* removes the underline from links */
+    transition: color 0.3s; /* optional: adds a transition effect on color change */
+}
+
+.Contributor-cards a:hover {
+    color: #ebfffe; /* lighter color on hover */
+}
