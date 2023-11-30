@@ -1,119 +1,131 @@
+/* Global styles */
 *{
     margin:0;
     padding:0;
-    font-family:'Poppins' , sans-serif;
-    box-sizing:border-box;
+    font-family:'Poppins', sans-serif; /* Default font set to Poppins */
+    box-sizing:border-box; /* Border-box model for width and height calculations */
 }
 body {
-    background-image: url('https://github.com/git-adrianM/WeathaApp/blob/main/images/Image1.png?raw=true'); /* Update the path */
+    background-image: url('https://github.com/git-adrianM/WeathaApp/blob/main/images/Image1.png?raw=true'); /* Background image for the body */
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
+    background-size: cover; /* Ensures the background covers the entire viewport */
 }
 
+/* Styling for the main card element */
 .card{
     width: 90%;
     max-width: 470px;
-    background: linear-gradient(135deg,#00feba,#5b548a);
-    color: #fff;
-    margin: 100px auto 0;
-    border-radius: 20px;
-    padding: 40px 35px;
-    text-align: center;
+    background: linear-gradient(135deg,#00feba,#5b548a); /* Linear gradient background */
+    color: #fff; /* Text color */
+    margin: 100px auto 0; /* Margin for alignment */
+    border-radius: 20px; /* Rounded corners */
+    padding: 40px 35px; /* Padding inside the card */
+    text-align: center; /* Center-align text */
 }
+
+/* Search box styling */
 .search{
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Vertical center alignment */
+    justify-content: space-between; /* Space between items */
 }
 .search input{
     border: 0;
     outline: 0;
-    background: #ebfffe;
-    color: #555;
+    background: #ebfffe; /* Input field background color */
+    color: #555; /* Input text color */
     padding: 10px 25px;
     height: 60px;
-    border-radius: 30px;
-    flex: 1;
-    margin-right: 16px;
-    font-size: 18px;
+    border-radius: 30px; /* Rounded corners for input field */
+    flex: 1; /* Flex grow */
+    margin-right: 16px; /* Right margin */
+    font-size: 18px; /* Font size for input text */
 }
 .search button{
     border: 0;
     outline: 0;
-    background: #ebfffe;
-    border-radius: 50%;
+    background: #ebfffe; /* Button background color */
+    border-radius: 50%; /* Circular button */
     width: 60px;
     height: 60px;
-    cursor: pointer;
+    cursor: pointer; /* Pointer cursor on hover */
 }
 .search button img{
-    width: 16px;    
+    width: 16px; /* Search icon size */
 }
+
+/* Weather icon styling */
 .weather-icon{
-    width: 170px;
-    margin-top: 30px;
+    width: 170px; /* Icon width */
+    margin-top: 30px; /* Top margin */
 }
 .weather h1{
-    font-size: 80px;
-    font-weight: 500;
+    font-size: 80px; /* Font size for main weather text */
+    font-weight: 500; /* Font weight */
 }
 .weather h2{
-    font-size: 45px;
+    font-size: 45px; /* Font size for secondary weather text */
     font-weight: 400;
-    margin-top: -10px;
+    margin-top: -10px; /* Negative margin for spacing */
 }
+
+/* Details section styling */
 .details{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    margin-top: 50px;
+    display: flex; /* Flexbox for layout */
+    align-items: center; /* Vertical alignment */
+    justify-content: space-between; /* Space between elements */
+    padding: 0 20px; /* Padding */
+    margin-top: 50px; /* Top margin */
 }
 .col{
-    display: flex;
-    align-items: center;
-    text-align: left;
+    display: flex; /* Flexbox for layout */
+    align-items: center; /* Vertical alignment */
+    text-align: left; /* Text alignment */
 }
 .col img{
-    width: 40px;
-    margin-right: 10px;
+    width: 40px; /* Image width */
+    margin-right: 10px; /* Right margin */
 }
 .humidity, .wind{
-    font-size: 28px;
-    margin-top: -6px;
+    font-size: 28px; /* Font size */
+    margin-top: -6px; /* Negative top margin */
 }
 .weather{
-    display: none;
+    display: none; /* Initially hidden */
 }
 .error{
     text-align: left;
     margin-left: 10px;
     font-size: 14px;
     margin-top: 10px;
-    display: none;
+    display: none; /* Initially hidden */
 }
 
+/* Forecast container styling */
 .forecast-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
+    display: grid; /* Grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Space between grid items */
     justify-content: center;
     padding: 20px;
 }
 
+/* Forecast card styling */
 .forecast-card {
-    background: linear-gradient(135deg, #00feba, #5b548a);
-    color: #fff;
-    border-radius: 20px;
+    background: linear-gradient(135deg, #00feba, #5b548a); /* Gradient background */
+    color: #fff; /* Text color */
+    border-radius: 20px; /* Rounded corners */
     padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    position: relative; /* Make sure position is relative for proper z-index functioning */
-    z-index: 1; /* This ensures that the card is above any potentially overlapping elements */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+    transition: 0.3s; /* Transition for hover effect */
+    position: relative; /* Needed for z-index */
+    z-index: 1; /* Ensures card is above other elements */
 }
+
+
 
 /* Adjusting the weather icon size and spacing */
 .weather-icon {

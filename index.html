@@ -8,17 +8,23 @@
 </head>
 <body>
 <div class="card">
+    
+    <!-- Search section for city input -->
     <div class="search">
         <input type="text" placeholder="Enter city name" spellcheck="false">
         <button><img src="images/search.png"></button>
     </div>
+    
+    <!-- Error message section, hidden by default -->
     <div class="error">
         <p>Invalid city name</p>
     </div>
+    
     <div id="forecast" class="forecast-container">
-
+    <!-- Forecast cards will be generated here -->
     </div>
 
+    <!-- Contributors section with links -->
     <div class="Contributor-cards">
         <h3>Contributors</h3>
         <ul class="contributors-list">
@@ -33,6 +39,8 @@
 </div>
 
 <script>
+
+    // API keys and base URL for the weather service
     const apiKey = "ba4d9761ebf97ef9db83a416a2691ec8"; 
     const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=";
 
@@ -52,6 +60,7 @@
         }
     }
 
+    // Function to display weather forecast data
     function displayForecast(forecastData) {
         const forecastContainer = document.getElementById('forecast');
         forecastContainer.innerHTML = ''; 
@@ -72,6 +81,7 @@
         }
     }
 
+    // Function to map weather conditions to icon filenames
     function getWeatherIcon(weatherMain) {
         const weatherIcons = {
             'Clouds': 'clouds',
@@ -84,11 +94,11 @@
         return weatherIcons[weatherMain] || 'default';
     }
 
+    // Event listener for the search button
     searchBtn.addEventListener("click", () => {
         checkWeather(searchBox.value);
     });
 
-    // Call the function on initial load with a default city
 </script>
 </body>
 </html>
