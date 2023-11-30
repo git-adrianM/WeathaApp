@@ -5,7 +5,7 @@
     box-sizing:border-box;
 }
 body {
-    background-image: url('/images/Image1.png'); /* Update the path */
+    background-image: url('./images/Image1.png'); /* Update the path */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
