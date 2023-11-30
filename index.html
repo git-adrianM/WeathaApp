@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App - Easy Tutorials</title>
+    <title>Weatha App</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,7 +15,6 @@
         <p>Invalid city name</p>
     </div>
     <div id="forecast" class="forecast-container">
-        <!-- Forecast cards will be generated here -->
 
     </div>
 
@@ -34,7 +33,7 @@
 </div>
 
 <script>
-    const apiKey = "ba4d9761ebf97ef9db83a416a2691ec8"; // Your OpenWeather API key
+    const apiKey = "ba4d9761ebf97ef9db83a416a2691ec8"; 
     const apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=";
 
     const searchBox = document.querySelector(".search input");
@@ -55,17 +54,17 @@
 
     function displayForecast(forecastData) {
         const forecastContainer = document.getElementById('forecast');
-        forecastContainer.innerHTML = ''; // Clear previous forecast cards
+        forecastContainer.innerHTML = ''; 
 
         for(let i = 0; i < forecastData.length; i += 8) {
             const day = forecastData[i];
-            const date = new Date(day.dt * 1000); // Convert Unix time to JS Date
+            const date = new Date(day.dt * 1000); 
             const card = document.createElement('div');
             card.className = 'forecast-card';
             card.innerHTML = `
                 <h3>${date.toDateString()}</h3>
                 <img src="images/${getWeatherIcon(day.weather[0].main)}.png" class="weather-icon" alt="${day.weather[0].main}">
-                <h2>${Math.round(day.main.temp - 273.15)}°C</h2>
+                <h2>${Math.round(day.main.temp * 9/5 - 459.67)}°F</h2>
                 <p>Humidity: ${day.main.humidity}%</p>
                 <p>Wind: ${day.wind.speed} km/h</p>
             `;
